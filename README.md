@@ -1,4 +1,4 @@
-# Super simple chat
+# Simple chat
 
 ## install
 
@@ -17,3 +17,10 @@ or
 ```
 npm start
 ```
+
+## visit
+
+```
+in the terminal you see http://192.168.x.x:3000
+```
+Paste this in your browsers
