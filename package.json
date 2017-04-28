@@ -4,7 +4,8 @@
   "description": "Super simple and insecure chat. For internal networks by example",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "“Johan <“xxxxx@xxxxx.com”>",

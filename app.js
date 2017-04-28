@@ -8,12 +8,11 @@ var fs = require('fs');
 var path = require('path');
 var latest = [];
 var imgs = [];
+const PORT = 3000;
+console.log(">>     http://" + ip.address() + ":" + PORT);
+server.listen(PORT);
 
-console.log(">> " + ip.address());
-
-server.listen(3000);
 app.use(express.static(__dirname + '/html'));
-
 io.on('connection', function (socket) {
   console.log("connection client");
   ss(socket).on('file', function(stream, data) {
