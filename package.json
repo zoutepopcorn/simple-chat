@@ -1,0 +1,18 @@
+{
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "Super simple and insecure chat. For internal networks by example",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "“Johan <“xxxxx@xxxxx.com”>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "ip": "^1.1.5",
+    "socket.io": "^1.7.3",
+    "socket.io-stream": "^0.9.1"
+  }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <title>Test</title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <script src="/socket.io/socket.io.js "></script>
+    <script src="socket.io-stream.js "></script>
+    <script src="jq.js "></script>
+    <script src="rc.js "></script>
+
+    <br>
+    <div id="full">
+        <i class="fa fa-camera" style="font-size:60px;">
+        </i>
+        <img id="fullImg" src="https://cdn.yamaha-motor.eu/product_assets/2016/MT07TR/950-75/2016-Yamaha-Tracer-700-EU-Radical-Red-Action-004.jpg">
+    </div>
+
+    <div id="login">
+        <input id="user" placeholder="naam"><br><br>
+        <button id="submit" onclick="login()" class="fa fa-sign-in" style="font-size:60px;">
+        LOGIN</button>
+    </div>
+
+
+
+
+
+    <!--i class="fa fa-camera butt to" style="font-size:60px;">
+          <input type='file' id='img' class="inputs">
+    </i-->
+
+    <div id="chat">
+        <div class="divs butt to">
+            <input id='img' type='file' class="inputs">
+            <i class="fa fa-camera fa-5x icons butt to" style="font-size:60px;"></i>
+        </div>
+
+
+
+        <div id="cont">
+        </div>
+        <div class=""><i class="fa fa-send butt bo" style="font-size:60px;" onclick="send()"></i></div>
+        <img id="image"><br/>
+        <label>a</label><br><br>
+        <div id="message"></div>
+        <div id="bottom">
+            <input id="text" placeholder="bericht">
+        </div>
+    </div>
+    <br>
+
+    <script type="text/javascript">
+        //  butt
+        var socket = io.connect();
+        if (localStorage.getItem("user")) {
+            console.log("hoi");
+            document.getElementById("login").style.display = "none";
+            socket.emit("login", user);
+        } else {
+            console.log("hoi login");
+            document.getElementById("chat").style.display = "none";
+        }
+
+        socket.on("mes", function(o) {
+            console.log("bericht " + o);
+            var div = document.getElementById('message');
+            div.innerHTML = div.innerHTML + "<font size=1>" + o.time + "</font><br><font color='" + o.color + "'><b style='background-color:" + o.color + ";'>-<font color='#fff'>" + o.user + "  </font>-</b>  " + o.mes + "</font><br>";
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        socket.on("img", function(o) {
+            console.log(o);
+            var zi = (parseInt($('.img:first').css('z-index')) + 1) + "";
+            var url = window.location.origin + "/" + o;
+            $("#cont").prepend('<div class="img"><div class="imga"></div></div>');
+            var sela = $('.imga:first');
+            sela.css('background-image', 'url(' + url + ')');
+            sela.attr('name', url);
+            var sel = $('.img:first');
+            sel.css('z-index', zi);
+            sela.click(function() {
+                url = $(this).attr('name');
+                $("#cont").hide();
+                $("#full").show();
+                $("#fullImg").attr("src", url);
+                $("#full").click(function() {
+                    $("#cont").show();
+                    $("#full").hide();
+                });
+            });
+            // IMAGE
+        });
+
+        //alert(window.location.origin);
+
+        $("#text").keypress(function(e) {
+            if (e.which == 13) {
+                send();
+            }
+        });
+
+        $("#user").keypress(function(e) {
+            if (e.which == 13) {
+                login();
+            }
+        });
+
+        function send() {
+            socket.emit("mes", {
+                "mes": document.getElementById("text").value,
+                "user": localStorage.getItem("user"),
+                "color": localStorage.getItem("color")
+            });
+            document.getElementById("text").value = "";
+        }
+
+        function login() {
+            var user = document.getElementById("user").value;
+            if (user.length > 1) {
+                localStorage.setItem("user", user);
+                localStorage.setItem("color", randomColor({
+                    luminosity: 'dark'
+                }));
+                socket.emit("login", user);
+                document.getElementById("login").style.display = "none";
+                document.getElementById("chat").style.display = "";
+                document.getElementById("text").value = "";
+            } else {
+                // report message
+            }
+        }
+    </script>
+    <script src="image.js" charset="utf-8"></script>
+</body>
+
+</html>

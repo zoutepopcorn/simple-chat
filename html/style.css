@@ -1,0 +1,227 @@
+::scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* IMAGES */
+.img {
+    position: relative;
+    width: 15vh;
+    height: 20vh;
+    left: -10px;
+    display: inline-block;
+    border: 2px solid;
+    border-color: white;
+    border-radius: 25px 2px 100px 10px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: 0;
+}
+.imga {
+    position: absolute;
+    width: 20vh;
+    height: 20vh;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    border: 2px solid;
+    border-color: white;
+    border-radius: 25px 2px 100px 10px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: 0;
+}
+
+.divs {
+    position: relative;
+    display: inline-block;
+    background-color: #fcc;
+}
+
+.inputs {
+    position:absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    --opacity: 0;
+    background: #00f;
+    z-index:999;
+}
+
+.icons {
+    position:relative;
+}
+
+#bottom {
+  position: fixed;
+  bottom: 0px;
+}
+
+#image {
+    display: none;
+}
+
+#message {
+  padding: 1vw;
+  padding-top: 21vh;
+  padding-bottom: 6vh;
+  width: 97vw;
+  padding-right: 6px;
+}
+
+.file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+}
+
+/* BUTTONS */
+.butt.to {
+  background-color: #1C90F3;
+  border-radius: 20px 5px 20px 50px;
+  right: 0px;
+  top: 0px;
+}
+
+.butt {
+   position: fixed;
+   font-size: 46px;
+   color: white;
+   padding: 20px;
+   z-index: 999;
+}
+
+
+/* LOGIN */
+#login {
+  position: absolute;
+  text-align: center;
+  top: 30vh;
+  width: 100vw;
+  right: 10px;
+}
+#user {
+  position: relative;
+  font-size:35px;
+  color: #FFF;
+  text-align: center;
+  width: 80vw;
+  font-size:50px;
+  border-radius: 25px;
+  height: 20vh;
+  top: 50%;
+  background-color: #1C90F3;
+}
+#user::placeholder  {
+    color: #33f;
+}
+#submit {
+  position: relative;
+  border: 1px #1C90F3;
+  border-radius: 25px;
+  border: 4px solid #1C90F3;
+  font-size:100px;
+  height: 20vh;
+  width: 80vw;
+  color: #1C90F3;
+}
+
+/* BUT TEST */
+.divs {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: #fcc;
+}
+
+.inputs {
+    position: absolute;
+    left: 0px;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background: #00f;
+    z-index:9999;
+}
+
+.icons {
+    position:relative;
+}
+
+
+#camera {
+  background-color: #73AD21;
+  border-radius: 50px 20px 5px 20px;
+  right: 0px;
+  bottom: 0px;
+}
+
+
+/* CHAT */
+#text {
+  font-size:30px;
+  color: #FFF;
+  border: 0px;
+  background-color: #f00;
+  background-color: #73AD21;
+  bottom: -3px;
+  padding-left: 10px;
+  padding-right: 60px;
+  width: 95vw;
+  height: 7vh;
+}
+
+.butt.bo {
+  background-color: #73AD21;
+  border-radius: 50px 20px 5px 20px;
+  right: 0px;
+  bottom: 0px;
+}
+.ot {
+  position: absolute;
+  z-index: 10;
+}
+
+#full {
+  top: 0px;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  background: #000;
+  z-index: 9999;
+}
+
+#fullImg {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#cont {
+  position: fixed;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  background: #fff;
+  top: 0px;
+  width: 100vw;
+  height: 20vh;
+}
