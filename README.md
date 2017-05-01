@@ -4,6 +4,7 @@
 
 ```
 git clone https://github.com/zoutepopcorn/simple-chat.git
+cd simple-chat
 npm install .
 ```
 ## run
